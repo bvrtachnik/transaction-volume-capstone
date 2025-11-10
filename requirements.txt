@@ -1,0 +1,45 @@
+# ======================================================
+# 1031 Exchange Capstone Project - Requirements
+# ======================================================
+# This file lists all Python packages required for the
+# data cleaning, exploratory data analysis (EDA),
+# visualization, and regression modeling stages.
+
+# ======================================================
+# Core Package Management
+# ======================================================
+pip
+setuptools
+wheel
+
+# ======================================================
+# Logging Utility
+# ======================================================
+loguru
+
+# ======================================================
+# Notebook & Interactive Environment Support
+# ======================================================
+ipython
+jupyter
+ipykernel
+ipywidgets
+nbdime
+
+# ======================================================
+# Data Analysis & Manipulation
+# ======================================================
+numpy
+pandas
+
+# ======================================================
+# Data Visualization
+# ======================================================
+matplotlib
+seaborn
+
+# ======================================================
+# Statistical Modeling & Machine Learning
+# ======================================================
+statsmodels
+scikit-learn
