@@ -31,12 +31,14 @@ python -m venv .venv
 .\.venv\Scripts\Activate
 python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
 
 ### macOS or Linux
-python3 -m venv .venv
+```python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
 
 ## Running the Notebook
 
