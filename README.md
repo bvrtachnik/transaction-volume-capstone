@@ -13,14 +13,40 @@
 This project examines historical 1031 exchange transaction volumes and their relationship to key economic indicators, including the Consumer Price Index (CPI), the S&P 500 Index, and interest rates. The goal of this exploratory phase is to identify trends, correlations, and potential predictors that will inform later modeling.
 
 ## Data sources
-- CPI: U.S. Bureau of Labor Statistics  
-- Interest rate: Federal Funds Effective Rate from FRED  
-- S&P 500: Market index levels  
-- Adjusted transactions: Internal monthly counts with a small confidentiality adjustment that preserves trends
+- **CPI**: U.S. Bureau of Labor Statistics  
+- **Interest rate**: Federal Funds Effective Rate from FRED  
+- **S&P 500**: Market index levels  
+- **Adjusted transactions**: Internal monthly counts with a small confidentiality adjustment that preserves trends
 
 ## Data files
 - `data/raw/` contains the original files as downloaded.
 - `data/clean/merged_data.csv` contains the monthly aligned dataset used in the notebook.
+
+## Advanced Analysis (Predictive Modeling)
+This project includes a basic machine learning component to predict adjusted transaction volume.
+
+### Models used
+- Multiple Linear Regression  
+- Random Forest Regression  
+
+### Process
+- Load and clean the dataset  
+- Select features: `cpi_rate`, `sp500`, and `interest_rate`  
+- Train/test split with `random_state=123`  
+- Train models and evaluate using MAE, RMSE, and R²  
+
+### Key results (Test Set)
+**Linear Regression**  
+- R²: 0.788  
+- MAE: 7.60  
+- RMSE: 9.04  
+
+**Random Forest Regression**  
+- R²: 0.782  
+- MAE: 7.66  
+- RMSE: 9.17  
+
+The results show that both models perform similarly, with linear regression generalizing slightly better.
 
 ## How to set up the environment
 Use a local virtual environment and install dependencies from `requirements.txt`.
