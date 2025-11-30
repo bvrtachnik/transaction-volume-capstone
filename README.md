@@ -1,57 +1,69 @@
-# transaction_volume_capstone
-[Capstone Report](https://www.overleaf.com/read/wsnxpqvrqjyz#b56958)
-
-[CPI](https://www.bls.gov/cpi/tables/supplemental-files/)
-
-[Federal Funds Effective Rate](https://fred.stlouisfed.org/series/DFF#)
-
-[Investing.com S&P 500 Historical Data](https://www.investing.com/indices/us-spx-500-historical-data)
-
 # Transaction Volume Capstone
 
 ## Overview
-This project examines historical 1031 exchange transaction volumes and their relationship to key economic indicators, including the Consumer Price Index (CPI), the S&P 500 Index, and interest rates. The goal of this exploratory phase is to identify trends, correlations, and potential predictors that will inform later modeling.
+
+This project examines how monthly 1031 exchange activity relates to three major economic indicators: the Consumer Price Index (CPI), the S&P 500 Index, and the Federal Funds Effective Rate. The goal of this phase is to identify trends, correlations, and preliminary predictive patterns that can support later modeling using the firm's full internal dataset.
+
+Full report (Overleaf PDF):  
+https://www.overleaf.com/read/wsnxpqvrqjyz
 
 ## Data sources
+
 - **CPI**: U.S. Bureau of Labor Statistics  
-- **Interest rate**: Federal Funds Effective Rate from FRED  
-- **S&P 500**: Market index levels  
-- **Adjusted transactions**: Internal monthly counts with a small confidentiality adjustment that preserves trends
+  - https://www.bls.gov/cpi/
+- **Federal Funds Effective Rate**: Federal Reserve Economic Data (FRED)  
+  - https://fred.stlouisfed.org/series/DFF
+- **S&P 500 index levels**: Investing.com historical data  
+  - https://www.investing.com/indices/us-spx-500-historical-data
+- **Adjusted transactions**: Internal monthly counts of completed 1031 exchanges with a small confidentiality adjustment that maintains overall structure and trends.
 
-## Data files
-- `data/raw/` contains the original files as downloaded.
-- `data/clean/merged_data.csv` contains the monthly aligned dataset used in the notebook.
+## Repository structure
 
-## Advanced Analysis (Predictive Modeling)
-This project includes a basic machine learning component to predict adjusted transaction volume.
+- `data/raw/` contains the original downloaded data files.
+- `data/clean/` contains the aligned and merged dataset used for analysis (for example `merged_data.csv`).
+- `figures/` contains exported images used in the report.
+- `project_notebook.ipynb` contains the exploratory analysis and predictive modeling.
+- `requirements.txt` lists the Python packages needed to reproduce the notebook.
 
-### Models used
+## Predictive modeling
+
+The project includes a basic predictive analysis using three features: `cpi_rate`, `sp500`, and `interest_rate`.
+
+### Models
+
 - Multiple Linear Regression  
-- Random Forest Regression  
+- Random Forest Regression
 
-### Process
-- Load and clean the dataset  
-- Select features: `cpi_rate`, `sp500`, and `interest_rate`  
-- Train/test split with `random_state=123`  
-- Train models and evaluate using MAE, RMSE, and R²  
+### Evaluation metrics
 
-### Key results (Test Set)
-**Linear Regression**  
+Models were evaluated on the test set using three standard metrics:
+
+- Mean Absolute Error (MAE)  
+- Root Mean Squared Error (RMSE)  
+- Coefficient of determination (R²)
+
+### Key results (test set)
+
+**Linear Regression**
+
 - R²: 0.788  
 - MAE: 7.60  
 - RMSE: 9.04  
 
-**Random Forest Regression**  
+**Random Forest Regression**
+
 - R²: 0.782  
 - MAE: 7.66  
 - RMSE: 9.17  
 
-The results show that both models perform similarly, with linear regression generalizing slightly better.
+Both models show similar performance on the held out data, with linear regression achieving slightly lower error and a higher R². Feature importance values from the random forest indicate that `cpi_rate` provides the most explanatory value, followed by `sp500`, with `interest_rate` contributing less.
 
-## How to set up the environment
+## Environment setup
+
 Use a local virtual environment and install dependencies from `requirements.txt`.
 
 ### Windows (PowerShell)
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate
