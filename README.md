@@ -84,5 +84,7 @@ pip install -r requirements.txt
 2. Select the .venv environment as your interpreter or kernel.
 3. Open and run project_notebook.ipynb to execute all cells.
 
+## AI Use Acknowledgment
+Generative AI tools were used for copyediting and formatting assistance. They were not used to generate research content, perform analysis, or interpret results. All analytic work, modeling decisions, and written explanations were completed by the author, and any AI-assisted edits were reviewed prior to inclusion.
 
 
